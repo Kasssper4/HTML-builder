@@ -16,7 +16,7 @@ async function buildPage() {
     for (file of stylesInput) {
         if (file.isFile() && path.extname(path.join(__dirname, 'styles', file.name)) === '.css') {
             const input = fs.createReadStream(path.join(__dirname, 'styles', file.name), 'utf8');
-            input.on('data', data => stylesOutput.write(data.toString() + '\n'));
+            input.on('data', data => stylesOutput.write('\n' + data.toString() + '\n'));
         }
     }
 
